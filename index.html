@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez si votre entreprise est facile à trouver en ligne. Téléchargez gratuitement la checklist des 7 informations essentielles.">
+    <meta name="theme-color" content="#1B4D5C">
+    <title>TheoWeb Solutions - Checklist Présence Digitale Gratuite</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header fixe -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="assets/logo.png" alt="TheoWeb Solutions" class="logo" id="headerLogo">
+                <span class="brand-name">TheoWeb Solutions</span>
+            </div>
+            <nav class="nav">
+                <a href="#how-it-works" class="nav-link">Comment ça marche</a>
+                <button class="cta-button" id="headerCTA">Recevoir la checklist</button>
+            </nav>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Votre entreprise est-elle facile à trouver et à contacter en ligne ?</h1>
+                    <p class="hero-subtitle">Téléchargez gratuitement la checklist des 7 informations qu'un client doit trouver en moins de 30 secondes.</p>
+                    <p class="hero-description">Une ressource simple pour identifier ce qui peut empêcher un prospect déjà intéressé de vous faire confiance ou de vous contacter.</p>
+                </div>
+
+                <div class="hero-form-section">
+                    <!-- PDF Card Visual -->
+                    <div class="pdf-card">
+                        <div class="pdf-header">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                <polyline points="13 2 13 9 20 9"></polyline>
+                            </svg>
+                            <span>PDF Gratuit</span>
+                        </div>
+                        <div class="pdf-title">Les 7 informations qu'un client doit trouver en moins de 30 secondes</div>
+                        <div class="pdf-features">
+                            <div class="pdf-feature">✓ Checklist simple et claire</div>
+                            <div class="pdf-feature">✓ Applicable immédiatement</div>
+                            <div class="pdf-feature">✓ Aucune obligation</div>
+                        </div>
+                    </div>
+
+                    <!-- Form -->
+                    <form class="lead-form" id="leadForm">
+                        <div class="form-group">
+                            <label for="firstName">Prénom *</label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Votre prénom">
+                        </div>
+                        <div class="form-group">
+                            <label for="companyName">Nom de l'entreprise *</label>
+                            <input type="text" id="companyName" name="companyName" required placeholder="Nom de votre entreprise">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="vous@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="whatsapp">Numéro WhatsApp (optionnel)</label>
+                            <input type="tel" id="whatsapp" name="whatsapp" placeholder="+509 XX XX XXXX">
+                        </div>
+                        <button type="submit" class="submit-button">Recevoir ma checklist gratuite</button>
+                        <p class="form-disclaimer">Gratuit. Aucune obligation. Vos informations restent confidentielles.</p>
+                    </form>
+
+                    <!-- Success Message (hidden by default) -->
+                    <div class="success-message" id="successMessage" style="display: none;">
+                        <div class="success-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Merci, <span id="successName">Mon ami</span> !</h3>
+                        <p>Votre checklist est prête.</p>
+                        <div class="success-actions">
+                            <a href="[LIEN_PDF_GOOGLE_DRIVE]" class="button button-primary" target="_blank" rel="noopener noreferrer">
+                                Télécharger la checklist
+                            </a>
+                            <a href="[LIEN_WHATSAPP]" class="button button-secondary" target="_blank" rel="noopener noreferrer" id="auditLink">
+                                Demander mon mini-audit gratuit
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Ce que vous allez vérifier -->
+    <section class="what-to-check" id="whatToCheck">
+        <div class="container">
+            <h2 class="section-title">En moins de 30 secondes, un client devrait pouvoir…</h2>
+            <div class="checklist-grid">
+                <!-- Item 1 -->
+                <div class="check-item">
+                    <div class="check-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>Comprendre votre activité</h3>
+                    <p>Ce que vous proposez doit être clair immédiatement.</p>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="check-item">
+                    <div class="check-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>Voir vos services ou produits</h3>
+                    <p>Les offres doivent être listées clairement.</p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="check-item">
+                    <div class="check-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>Vous contacter facilement</h3>
+                    <p>WhatsApp, téléphone ou email accessibles.</p>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="check-item">
+                    <div class="check-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <h3>Trouver votre localisation</h3>
+                    <p>Adresse et zone de service doivent être visibles.</p>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="check-item">
+                    <div class="check-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Connaître vos horaires</h3>
+                    <p>Les disponibilités doivent être claires.</p>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="check-item">
+                    <div class="check-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Voir des preuves de confiance</h3>
+                    <p>Avis, certifications ou témoignages visibles.</p>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="check-item">
+                    <div class="check-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="1"></circle>
+                            <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m6.08 0l4.24-4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m6.08 0l4.24 4.24"></path>
+                        </svg>
+                    </div>
+                    <h3>Savoir quelle action faire</h3>
+                    <p>L'appel à l'action doit être évident.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Avant / Après -->
+    <section class="before-after">
+        <div class="container">
+            <h2 class="section-title">Une bonne entreprise peut perdre des clients si elle est difficile à comprendre en ligne</h2>
+            
+            <div class="before-after-grid">
+                <!-- Avant -->
+                <div class="before-after-card before">
+                    <div class="card-label">Avant</div>
+                    <div class="card-content">
+                        <div class="bad-example">
+                            <p class="bad-title">❌ Informations dispersées</p>
+                            <p class="bad-text">Pas clair ce que vous proposez</p>
+                        </div>
+                        <div class="bad-example">
+                            <p class="bad-title">❌ Contact difficile</p>
+                            <p class="bad-text">Pas de WhatsApp ou téléphone visible</p>
+                        </div>
+                        <div class="bad-example">
+                            <p class="bad-title">❌ Page confuse</p>
+                            <p class="bad-text">Trop d'informations mal organisées</p>
+                        </div>
+                        <div class="bad-example">
+                            <p class="bad-title">❌ Manque de confiance</p>
+                            <p class="bad-text">Aucun avis ou preuve de professionnalisme</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Après -->
+                <div class="before-after-card after">
+                    <div class="card-label">Après</div>
+                    <div class="card-content">
+                        <div class="good-example">
+                            <p class="good-title">✓ Services clairs</p>
+                            <p class="good-text">Compréhension immédiate</p>
+                        </div>
+                        <div class="good-example">
+                            <p class="good-title">✓ Contact accessible</p>
+                            <p class="good-text">WhatsApp et téléphone en évidence</p>
+                        </div>
+                        <div class="good-example">
+                            <p class="good-title">✓ Page bien organisée</p>
+                            <p class="good-text">Information hiérarchisée et lisible</p>
+                        </div>
+                        <div class="good-example">
+                            <p class="good-title">✓ Image professionnelle</p>
+                            <p class="good-text">Confiance immédiate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="before-after-text">Un client intéressé ne devrait pas devoir vous écrire pour trouver les informations de base. Une présence en ligne claire l'aide à décider plus vite de vous contacter.</p>
+        </div>
+    </section>
+
+    <!-- Section: Honnêteté -->
+    <section class="honesty">
+        <div class="container">
+            <h2 class="section-title">Ce que cette checklist ne fait pas</h2>
+            <div class="honesty-content">
+                <p class="honesty-warning">Cette checklist ne garantit pas automatiquement plus de clients et ne remplace pas un bon service, de bonnes réponses ou une vraie relation client.</p>
+                <p class="honesty-positive">Mais elle peut vous aider à identifier les informations qui créent de la confusion et font hésiter les personnes déjà intéressées par votre entreprise.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Comment ça marche -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Comment ça marche</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Téléchargez gratuitement la checklist</h3>
+                    <p>Entrez vos informations et accédez à la ressource immédiatement.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Vérifiez votre présence en ligne</h3>
+                    <p>Appliquez la checklist à votre Facebook, Instagram, WhatsApp Business ou site web.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Demandez un mini-audit gratuit</h3>
+                    <p>Obtenez des priorités claires pour améliorer votre présence digitale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Mini-audit -->
+    <section class="mini-audit">
+        <div class="container">
+            <h2 class="section-title">Vous souhaitez un regard professionnel sur votre présence en ligne ?</h2>
+            <p class="audit-description">Envoyez-nous le lien de votre page Facebook, Instagram, profil Google ou site web. Nous vous indiquerons les 2 ou 3 priorités les plus utiles à améliorer.</p>
+            <a href="[LIEN_WHATSAPP]" class="cta-button cta-button-large" target="_blank" rel="noopener noreferrer">Demander mon mini-audit gratuit</a>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Questions fréquentes</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="1">
+                        <span>La checklist est-elle vraiment gratuite ?</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer" id="faq-1" style="display: none;">
+                        <p>Oui, elle est gratuite et sans obligation. Vous pouvez télécharger et utiliser la checklist comme bon vous semble, sans jamais devoir nous contacter si vous ne le souhaitez pas.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="2">
+                        <span>Est-ce que je dois déjà avoir un site web ?</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer" id="faq-2" style="display: none;">
+                        <p>Non. Vous pouvez utiliser cette checklist pour vérifier votre présence sur votre site, Facebook, Instagram, WhatsApp Business ou tout autre endroit où vos clients vous trouvent.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="3">
+                        <span>Est-ce que TheoWeb Solutions peut m'aider à corriger les problèmes identifiés ?</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer" id="faq-3" style="display: none;">
+                        <p>Oui. Après le mini-audit, nous pouvons vous proposer une solution adaptée à votre entreprise : site vitrine, optimisation de présence digitale, WhatsApp Business, branding ou automatisation simple.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="4">
+                        <span>Combien de temps dure le mini-audit ?</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer" id="faq-4" style="display: none;">
+                        <p>Le mini-audit est court et se concentre sur les priorités les plus importantes de votre présence digitale actuelle. Vous aurez une réponse claire et actionnable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="assets/logo.png" alt="TheoWeb Solutions" class="footer-logo">
+                    <p class="footer-tagline">Solutions web et présence digitale pour petites entreprises.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="[LIEN_WHATSAPP]" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                        <li><a href="mailto:[EMAIL_THEOWEB]">Email</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Réseaux sociaux</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.facebook.com/theoweb" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                        <li><a href="https://www.linkedin.com/company/theoweb" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 TheoWeb Solutions. Tous droits réservés.</p>
+                <p class="privacy-notice">Nous protégeons vos informations. <a href="#" id="privacyToggle">Politique de confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Modal (hidden by default) -->
+    <div class="modal" id="privacyModal" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h3>Politique de Confidentialité</h3>
+            <div class="privacy-text">
+                <h4>Protection de vos données</h4>
+                <p>TheoWeb Solutions s'engage à protéger vos informations personnelles. Les données que vous fournissez via notre formulaire (prénom, nom d'entreprise, email) sont utilisées uniquement pour :</p>
+                <ul>
+                    <li>Vous envoyer la checklist gratuite</li>
+                    <li>Vous proposer un mini-audit gratuit</li>
+                    <li>Vous informer de nos services (vous pouvez vous désinscrire à tout moment)</li>
+                </ul>
+                <h4>Vos droits</h4>
+                <p>Vous avez le droit d'accéder, de modifier ou de supprimer vos informations à tout moment en nous contactant via WhatsApp ou email.</p>
+                <h4>Sécurité</h4>
+                <p>Nous prenons la sécurité de vos données au sérieux et utilisons les meilleures pratiques pour les protéger.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
