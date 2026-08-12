@@ -1,317 +1,109 @@
-# TheoWeb Solutions — Landing Page Professionnelle
+# TheoWeb Solutions
 
-## 📌 Vue d'ensemble
+Landing page statique en français pour offrir la checklist PDF gratuite :
+« Les 7 informations qu’un client doit trouver en moins de 30 secondes ».
 
-Site vitrine moderne et responsive pour **TheoWeb Solutions**, spécialisée dans les solutions web et la présence digitale pour petites entreprises en Haïti.
+## Stack et structure
 
-**Objectif principal** : Convertir des visiteurs en leads qualifiés via un formulaire de téléchargement gratuit de la checklist "Les 7 informations qu'un client doit trouver en moins de 30 secondes".
+Le projet utilise HTML, CSS et JavaScript vanilla : aucune installation de dépendance ni commande de build n’est nécessaire.
 
----
-
-## ✨ Fonctionnalités Incluses
-
-### 🎯 Conversion & Lead Generation
-- ✅ Formulaire principal avec validation front-end
-- ✅ Message de succès dynamique (après soumission)
-- ✅ Récupération des données (localStorage pour développement)
-- ✅ Liens WhatsApp préremplis avec contexte
-- ✅ Support pour numéros WhatsApp haïtiens
-
-### 🎨 Design & UX
-- ✅ **Palette couleur** basée sur le logo : Orange (#E85D3F) + Teal (#1B4D5C)
-- ✅ **Mobile-first** : Parfait sur tous les appareils
-- ✅ **Espace blanc** : Design épuré et professionnel
-- ✅ **Animations légères** : Au scroll (performantes)
-- ✅ **Accessibilité** : Contrastes, labels, navigation clavier
-
-### 📱 Responsive
-- ✅ Desktop (1200px+)
-- ✅ Tablette (768px - 1024px)
-- ✅ Mobile (< 768px)
-- ✅ Très petit mobile (480px)
-
-### 🔧 Code Quality
-- ✅ **HTML sémantique** (pas de div génériques)
-- ✅ **CSS structuré** avec variables personnalisées
-- ✅ **JavaScript vanilla** (zéro dépendances)
-- ✅ **Commentaires utiles** en français
-- ✅ **Pas de code artificiel** (lisible et maintenable)
-
-### 📋 Sections
-
-1. **Header fixe** — Logo + Navigation + CTA bouton
-2. **Hero** — Titre accrocheur + Formulaire + Mockup PDF
-3. **Checklist** — 7 cartes avec icônes (ce qu'on vérifie)
-4. **Avant/Après** — Comparaison visuelle des problèmes
-5. **Section Honnêteté** — Ce que la checklist NE fait PAS
-6. **Comment ça marche** — 3 étapes numérotées
-7. **Mini-audit** — Appel à l'action secondaire
-8. **FAQ** — Accordéon avec 4 questions
-9. **Footer** — Logo, liens, politique de confidentialité
-
----
-
-## 📊 Spécifications Techniques
-
-### Stack
-| Couche | Technologie |
-|--------|------------|
-| Frontend | HTML5 + CSS3 + JavaScript (vanilla) |
-| Responsiveness | CSS Grid + Flexbox + Media Queries |
-| Icons | SVG inline (aucune dépendance externe) |
-| Storage | localStorage (développement) |
-| Hosting | Netlify (recommandé) |
-
-### Performance
-- **Taille** : ~80KB (HTML + CSS + JS combinés)
-- **Chargement** : < 1 secondes (sur 4G)
-- **Lighthouse Score** : 90+ (Performance, Accessibility)
-- **Aucune dépendance externe** = Aucun risque de rupture
-
-### Browser Support
-- ✅ Chrome/Edge (dernières versions)
-- ✅ Firefox (dernières versions)
-- ✅ Safari (iOS 12+)
-- ✅ Android 5+
-
----
-
-## 📝 Fichiers Fournis
-
-```
-📦 theoweb-solutions/
-├── 📄 index.html              (365 lignes)
-│   └── Structure sémantique, formulaire, sections
-├── 🎨 styles.css              (850 lignes)
-│   └── Design responsive, animations, variables
-├── ⚙️ script.js               (350 lignes)
-│   └── Logique formulaire, interactions, validations
-├── 📁 assets/
-│   └── logo.png               ← À placer (pas fourni)
-└── 📚 Documentation/
-    ├── GUIDE_INSTALLATION.md
-    ├── PLACEHOLDERS_A_REMPLACER.txt
-    └── README.md (ce fichier)
+```text
+index.html                 Page principale et métadonnées SEO
+style.css                  Styles responsive
+script.js                  Formulaires, téléchargement et interactions
+analytics.js               Chargement conditionnel de Google Analytics 4
+api/analytics-config.js    Fonction Vercel qui expose uniquement l’ID GA4
+assets/logo.png            Logo TheoWeb Solutions
+robots.txt                 Instructions pour les moteurs de recherche
+sitemap.xml                Sitemap temporaire
 ```
 
----
+## Lancer localement
 
-## 🚀 Démarrage Rapide
-
-### 1️⃣ Préparation (5 min)
+Ouvrez `index.html` avec l’extension Live Server de VS Code, ou lancez un serveur statique depuis le dossier du projet :
 
 ```bash
-# Créez la structure
-mkdir theoweb-solutions
-cd theoweb-solutions
-mkdir assets
-
-# Téléchargez et placez les fichiers
-# index.html, styles.css, script.js dans le dossier racine
-# logo.png dans le dossier assets/
+npx serve .
 ```
 
-### 2️⃣ Configuration (10 min)
+Ouvrez ensuite l’adresse affichée dans le navigateur.
 
-- [ ] Remplacez `[LIEN_PDF_GOOGLE_DRIVE]` par le vrai lien
-- [ ] Remplacez `[LIEN_WHATSAPP]` par votre numéro
-- [ ] Remplacez `[EMAIL_THEOWEB]` par votre email
-- [ ] Mettez à jour les liens réseaux sociaux (footer)
+## Vérifications avant publication
 
-### 3️⃣ Test Local (5 min)
+- Le bouton de téléchargement pointe vers le PDF Google Drive.
+- Les boutons WhatsApp utilisent le numéro `+509 4634 4841`.
+- Les liens Facebook et LinkedIn sont renseignés dans le footer.
+- Le formulaire de checklist envoie une notification via FormSubmit après le clic réel sur le téléchargement. Validez l’email d’activation FormSubmit reçu lors de la première soumission.
+- Le formulaire de contact affiche aujourd’hui une confirmation locale ; il ne transmet pas encore de message par email.
 
-```bash
-# Avec Python
-python -m http.server 8000
-# Puis ouvrez http://localhost:8000
+## Liens à modifier
 
-# OU avec VS Code Live Server
-# Clic droit sur index.html > Open with Live Server
-```
+- PDF : cherchez `drive.google.com` dans `index.html`.
+- WhatsApp : cherchez `50946344841` dans `index.html` et `script.js`.
+- Email de contact : cherchez `louisjustetheodore@gmail.com`.
+- Réseaux sociaux : modifiez les liens Facebook et LinkedIn du footer dans `index.html`.
+- Image sociale : remplacez `assets/logo.png` par une image 1200 × 630 px et mettez à jour `og:image` dans `index.html`.
 
-### 4️⃣ Déploiement (2 min)
+## Déployer sur Vercel
 
-Allez sur https://app.netlify.com/drop et uploadez votre dossier.
+1. Connectez-vous à Vercel :
 
-**Voilà ! Votre site est en ligne.** 🎉
+   ```bash
+   npx vercel login
+   ```
 
----
+2. Liez le dossier au nouveau projet. Choisissez le nom `theoweb-solutions` si disponible, puis confirmez que le répertoire courant est le dossier du projet.
 
-## 🔧 Intégrations Disponibles
+   ```bash
+   npx vercel link
+   ```
 
-### Pour capturer les leads (Recommandé)
+3. Ajoutez Google Analytics si vous avez déjà son Measurement ID (voir la section suivante), puis déployez :
 
-Le formulaire peut être connecté à :
+   ```bash
+   npx vercel --prod
+   ```
 
-1. **Formspree** — Email direct (plus simple)
-2. **Google Sheets** — Feuille de calcul (gratuit)
-3. **Brevo** — Email marketing (gratuit)
-4. **Mailchimp** — Newsletter (gratuit)
+Vercel publie le site automatiquement en HTTPS et fournit un certificat SSL pour l’URL `vercel.app`. L’URL temporaire prévue par les fichiers SEO est `https://theoweb-solutions.vercel.app/`. Si Vercel attribue une URL différente, remplacez cette URL dans `index.html`, `robots.txt` et `sitemap.xml`, puis redéployez.
 
-Voir `GUIDE_INSTALLATION.md` pour les détails.
+### Ajouter un domaine personnalisé plus tard
 
----
+Dans le tableau de bord Vercel, ouvrez le projet puis **Settings → Domains**. Ajoutez le domaine et appliquez les enregistrements DNS fournis. Après validation, remplacez l’URL `vercel.app` dans les balises canonical/Open Graph, `robots.txt` et `sitemap.xml`, puis redéployez.
 
-## 📱 Comportements Spéciaux
+## Configuration de Google Analytics
 
-### Formulaire
-- ✅ Validation en temps réel
-- ✅ Détection des emails invalides
-- ✅ Formatage automatique du numéro WhatsApp
-- ✅ Message de succès personnalisé avec le prénom
+1. Créez une propriété Google Analytics 4 sur [Google Analytics](https://analytics.google.com).
+2. Récupérez le Measurement ID qui commence par `G-`.
+3. Dans Vercel, ouvrez **Settings → Environment Variables** et ajoutez :
 
-### Navigation
-- ✅ Scroll smooth vers les sections
-- ✅ Menu mobile collapsible
-- ✅ Header fixe restant visible
+   ```text
+   GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
+   ```
 
-### Interactivité
-- ✅ Accordéon FAQ (cliquez pour déplier)
-- ✅ Modal de confidentialité
-- ✅ Animations au scroll (éléments qui apparaissent)
-- ✅ Boutons avec hover effects
+   Ajoutez-le au moins à l’environnement **Production**.
+4. Redéployez le site avec `npx vercel --prod`.
+5. Vérifiez les visites dans le rapport Temps réel de Google Analytics.
 
----
+Sans cette variable, aucun script Google Analytics n’est chargé. Les événements configurés ne contiennent aucune donnée personnelle :
 
-## 🎨 Personnalisation
+- `form_submit`
+- `checklist_download_click`
+- `whatsapp_audit_click`
 
-### Changer les couleurs
+## Connecter le site à Google Search Console
 
-Ouvrez `styles.css` (ligne 10-15) et modifiez :
+1. Ouvrez [Google Search Console](https://search.google.com/search-console).
+2. Ajoutez une propriété de type **Préfixe de l’URL**.
+3. Saisissez l’URL Vercel finale, par exemple `https://theoweb-solutions.vercel.app/`.
+4. Utilisez la méthode de validation recommandée par Google Search Console.
+5. Une fois la propriété validée, ouvrez la section **Sitemaps** et soumettez :
 
-```css
-:root {
-    --primary-orange: #E85D3F;   /* ← Couleur principale */
-    --primary-teal: #1B4D5C;     /* ← Couleur secondaire */
-    --text-dark: #1F2937;        /* ← Texte */
-    --bg-light: #F9FAFB;         /* ← Arrière-plan */
-}
-```
+   ```text
+   https://theoweb-solutions.vercel.app/sitemap.xml
+   ```
 
-Toutes les couleurs changent automatiquement partout.
+6. Quand un domaine personnalisé sera connecté, créez une propriété pour ce domaine (ou actualisez la propriété appropriée), mettez à jour les URL SEO du projet, puis soumettez le nouveau sitemap.
 
-### Changer les textes
+## Variables d’environnement
 
-Ouvrez `index.html` et cherchez la section (ex: "Hero Section").
-
-Modifiez directement le texte en HTML.
-
-### Ajouter des sections
-
-Dupliquez une section existante et adaptez-la.
-
----
-
-## 🔒 Sécurité & Confidentialité
-
-- ✅ **HTTPS** : Automatique sur Netlify
-- ✅ **Données** : Restent chez le visiteur (localStorage) jusqu'à envoi
-- ✅ **API** : Vous contrôlez complètement (Formspree, Google, etc.)
-- ✅ **Pas de tracking** : Aucun cookie ou script externe par défaut
-
----
-
-## 📊 Métriques & Analytics
-
-Pour ajouter **Google Analytics** :
-
-1. Allez sur https://analytics.google.com
-2. Créez un compte
-3. Récupérez votre **ID de mesure** (ex: `G-XXXXXXXXXX`)
-4. Ajoutez ceci avant `</head>` dans `index.html` :
-
-```html
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-```
-
-Remplacez `G-XXXXXXXXXX` par votre ID.
-
----
-
-## 🐛 Dépannage
-
-### Le formulaire ne fonctionne pas
-- [ ] Ouvrez la console (F12)
-- [ ] Vérifiez s'il y a des erreurs
-- [ ] Tapez `debugForm()` pour voir les données
-- [ ] Vérifiez que localStorage est activé
-
-### Le logo ne s'affiche pas
-- [ ] Vérifiez que `assets/logo.png` existe
-- [ ] Vérifiez les permissions du fichier
-- [ ] Ouvrez la console (F12) et cherchez les erreurs 404
-
-### Les liens placeholders s'affichent
-- [ ] Ouvrez index.html avec un éditeur
-- [ ] Utilisez Ctrl+H (Rechercher/Remplacer)
-- [ ] Remplacez tous les placeholders
-- [ ] Sauvegardez et rechargez
-
-### Le site n'est pas responsive
-- [ ] Appuyez sur F12 > Toggle device toolbar
-- [ ] Testez en mode iPhone/Android
-- [ ] Vérifiez que `meta name="viewport"` existe en haut
-
----
-
-## 📚 Ressources Utiles
-
-- **Netlify Docs** : https://docs.netlify.com/
-- **Google Drive API** : https://drive.google.com/
-- **WhatsApp Business API** : https://developers.facebook.com/
-- **Formspree** : https://formspree.io/
-- **CSS Variables** : https://developer.mozilla.org/en-US/docs/Web/CSS/--*
-
----
-
-## 🎯 Prochaines Étapes
-
-### Court terme (Avant lancement)
-- [ ] Remplacer tous les placeholders
-- [ ] Tester sur mobile réel
-- [ ] Configurer Google Analytics
-- [ ] Vérifier que tous les liens fonctionnent
-
-### Moyen terme (2-4 semaines)
-- [ ] Connecter une vraie base de données
-- [ ] Configurer des emails automatiques
-- [ ] A/B tester le texte du formulaire
-- [ ] Ajouter des témoignages de clients
-
-### Long terme (1-3 mois)
-- [ ] Optimiser les conversions
-- [ ] Ajouter une blog
-- [ ] Créer des landing pages spécialisées
-- [ ] Intégrer un chatbot
-
----
-
-## 📞 Support
-
-Vous avez des questions ?
-
-- **Netlify** : https://support.netlify.com/
-- **Stack Overflow** : Tag `html` `css` `javascript`
-- **MDN Web Docs** : https://developer.mozilla.org/
-
----
-
-## 📄 Licence
-
-Ce code est créé spécifiquement pour **TheoWeb Solutions**.
-
-Libre d'utilisation, modification et redistribution pour le projet.
-
----
-
-**Version** : 1.0  
-**Créé** : Août 2026  
-**Pour** : TheoWeb Solutions - Haïti  
-
-**Bon succès ! 🚀**
+Copiez `.env.example` en `.env.local` seulement pour les tests locaux. Ne versionnez jamais `.env.local` ni une vraie clé.

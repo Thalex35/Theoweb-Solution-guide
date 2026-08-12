@@ -209,12 +209,12 @@ leadForm.addEventListener('submit', async (e) => {
         // Pour développement local, nous simulons une soumission réussie
         // Remplacez cette section par l'une des intégrations ci-dessus
         
-        await new Promise(resolve => setTimeout(resolve, 1000)); // Simule une requête
         const simulated = true;
 
         if (simulated) {
             // Affiche le message de succès
             showSuccessMessage(formData);
+            window.trackAnalyticsEvent('form_submit');
             
             // Sauvegarde les données en localStorage pour démo
             localStorage.setItem('lastSubmission', JSON.stringify(formData));
@@ -244,7 +244,7 @@ function showSuccessMessage(formData) {
 
     // Personnalise le lien WhatsApp avec le message prérempli
     const whatsappMessage = `Bonjour TheoWeb Solutions, je viens de télécharger la checklist et je souhaite un mini-audit gratuit de ma présence en ligne. Mon entreprise est : ${formData.companyName}.`;
-    const whatsappLink = `[LIEN_WHATSAPP]${encodeURIComponent(whatsappMessage)}`;
+    const whatsappLink = `https://wa.me/50946344841?text=${encodeURIComponent(whatsappMessage)}`;
     auditLink.href = whatsappLink;
 
     // Affiche le message de succès
@@ -256,6 +256,69 @@ function showSuccessMessage(formData) {
     // Réinitialise le formulaire
     leadForm.reset();
 }
+
+// Envoie une notification uniquement lorsque le guide est réellement téléchargé.
+document.getElementById('guideDownloadLink').addEventListener('click', async (e) => {
+    e.preventDefault();
+    window.trackAnalyticsEvent('checklist_download_click');
+
+    const storedSubmission = localStorage.getItem('lastSubmission');
+    if (!storedSubmission) {
+        alert('Veuillez remplir le formulaire avant de télécharger la checklist.');
+        return;
+    }
+
+    const guideLink = e.currentTarget;
+    const downloadUrl = guideLink.href;
+    const originalText = guideLink.textContent;
+    const downloadWindow = window.open('', '_blank');
+    if (downloadWindow) {
+        downloadWindow.opener = null;
+    }
+    guideLink.textContent = 'Préparation du téléchargement...';
+    guideLink.style.pointerEvents = 'none';
+
+    try {
+        const formData = JSON.parse(storedSubmission);
+        const response = await fetch('https://formsubmit.co/ajax/louisjustetheodore@gmail.com', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                ...formData,
+                _subject: 'Nouveau téléchargement de checklist - TheoWeb Solutions',
+                _template: 'table'
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('La notification email n\'a pas pu être envoyée.');
+        }
+
+        if (downloadWindow) {
+            downloadWindow.location.href = downloadUrl;
+        } else {
+            window.location.href = downloadUrl;
+        }
+    } catch (error) {
+        if (downloadWindow) {
+            downloadWindow.close();
+        }
+        console.error('Erreur lors de la notification de téléchargement:', error);
+        alert('Le téléchargement est momentanément indisponible. Veuillez réessayer.');
+    } finally {
+        guideLink.textContent = originalText;
+        guideLink.style.pointerEvents = '';
+    }
+});
+
+document.querySelectorAll('a[href*="wa.me"]').forEach((whatsAppLink) => {
+    whatsAppLink.addEventListener('click', () => {
+        window.trackAnalyticsEvent('whatsapp_audit_click');
+    });
+});
 
 // ============================================
 // NAVIGATION
@@ -438,3 +501,120 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         }
     });
 });
+
+
+ 
+// ============================================
+// GESTION DU FORMULAIRE DE CONTACT
+// ============================================
+ 
+const contactForm = document.getElementById('contactForm');
+const contactSuccess = document.getElementById('contactSuccess');
+ 
+/**
+ * Gère la soumission du formulaire de contact
+ */
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+ 
+    // Récupère les données du formulaire
+    const formData = {
+        name: document.getElementById('contactName').value.trim(),
+        email: document.getElementById('contactEmail').value.trim(),
+        phone: document.getElementById('contactPhone').value.trim(),
+        message: document.getElementById('contactMessage').value.trim(),
+        timestamp: new Date().toISOString()
+    };
+ 
+    // Valide les données
+    if (!formData.name || !formData.email || !formData.message) {
+        alert('Veuillez remplir tous les champs obligatoires.');
+        return;
+    }
+ 
+    if (!isValidEmail(formData.email)) {
+        alert('Veuillez entrer un email valide.');
+        return;
+    }
+ 
+    // Affiche un état de chargement
+    const submitButton = contactForm.querySelector('.submit-button');
+    const originalText = submitButton.textContent;
+    submitButton.textContent = 'Envoi en cours...';
+    submitButton.disabled = true;
+ 
+    try {
+        // ============================================
+        // INTÉGRATION FUTURE - ENVOYER L'EMAIL
+        // ============================================
+        // Pour envoyer les messages de contact par email, tu peux utiliser :
+        
+        // OPTION 1 : Formspree (Recommandé - le plus simple)
+        // 1. Va sur https://formspree.io/
+        // 2. Crée un formulaire avec ton email
+        // 3. Tu recevras les messages directement
+        // 4. Décommente le code ci-dessous et remplace YOUR_FORM_ID
+        
+        /*
+        const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        */
+ 
+        // OPTION 2 : EmailJS (Service gratuit)
+        // 1. Va sur https://www.emailjs.com/
+        // 2. Crée un compte gratuit
+        // 3. Configure ton email
+        // 4. Obtiens ton Service ID et Template ID
+        // 5. Décommente le code ci-dessous
+        
+        /*
+        emailjs.init('YOUR_PUBLIC_KEY');
+        const response = await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+            from_name: formData.name,
+            from_email: formData.email,
+            from_phone: formData.phone,
+            message: formData.message,
+            to_email: 'louisjustetheodore@gmail.com'
+        });
+        */
+ 
+        // Pour maintenant, on simule un succès
+        await new Promise(resolve => setTimeout(resolve, 1000));
+ 
+        // Affiche le message de succès
+        showContactSuccess(formData);
+ 
+        // Sauvegarde dans localStorage
+        localStorage.setItem('lastContactSubmission', JSON.stringify(formData));
+ 
+    } catch (error) {
+        console.error('Erreur lors de la soumission:', error);
+        alert('Une erreur est survenue. Veuillez réessayer.');
+    } finally {
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+    }
+});
+ 
+/**
+ * Affiche le message de succès du formulaire de contact
+ */
+function showContactSuccess(formData) {
+    // Cache le formulaire
+    contactForm.style.display = 'none';
+ 
+    // Remplit le message de succès
+    document.getElementById('contactSuccessName').textContent = formData.name;
+ 
+    // Affiche le message de succès
+    contactSuccess.style.display = 'block';
+ 
+    // Fait défiler vers le message
+    contactSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+ 
+    // Réinitialise le formulaire
+    contactForm.reset();
+}
