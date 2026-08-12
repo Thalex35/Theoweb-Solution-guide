@@ -37,17 +37,17 @@ function validateForm(data) {
     const errors = [];
 
     if (!data.firstName.trim()) {
-        errors.push('Le prénom est requis');
+        errors.push(window.siteText('Le prénom est requis'));
     }
 
     if (!data.companyName.trim()) {
-        errors.push('Le nom de l\'entreprise est requis');
+        errors.push(window.siteText('Le nom de l\'entreprise est requis'));
     }
 
     if (!data.email.trim()) {
-        errors.push('L\'email est requis');
+        errors.push(window.siteText('L\'email est requis'));
     } else if (!isValidEmail(data.email)) {
-        errors.push('Veuillez entrer un email valide');
+        errors.push(window.siteText('Veuillez entrer un email valide'));
     }
 
     return {
@@ -92,7 +92,7 @@ leadForm.addEventListener('submit', async (e) => {
     // Affiche un état de chargement
     const submitButton = leadForm.querySelector('.submit-button');
     const originalText = submitButton.textContent;
-    submitButton.textContent = 'Traitement...';
+    submitButton.textContent = window.siteText('Traitement...');
     submitButton.disabled = true;
 
     try {
@@ -225,7 +225,7 @@ leadForm.addEventListener('submit', async (e) => {
 
     } catch (error) {
         console.error('Erreur lors de la soumission:', error);
-        alert('Une erreur est survenue. Veuillez réessayer.');
+        alert(window.siteText('Une erreur est survenue. Veuillez réessayer.'));
     } finally {
         submitButton.textContent = originalText;
         submitButton.disabled = false;
@@ -264,7 +264,7 @@ document.getElementById('guideDownloadLink').addEventListener('click', async (e)
 
     const storedSubmission = localStorage.getItem('lastSubmission');
     if (!storedSubmission) {
-        alert('Veuillez remplir le formulaire avant de télécharger la checklist.');
+        alert(window.siteText('Veuillez remplir le formulaire avant de télécharger la checklist.'));
         return;
     }
 
@@ -275,7 +275,7 @@ document.getElementById('guideDownloadLink').addEventListener('click', async (e)
     if (downloadWindow) {
         downloadWindow.opener = null;
     }
-    guideLink.textContent = 'Préparation du téléchargement...';
+    guideLink.textContent = window.siteText('Préparation du téléchargement...');
     guideLink.style.pointerEvents = 'none';
 
     try {
@@ -307,7 +307,7 @@ document.getElementById('guideDownloadLink').addEventListener('click', async (e)
             downloadWindow.close();
         }
         console.error('Erreur lors de la notification de téléchargement:', error);
-        alert('Le téléchargement est momentanément indisponible. Veuillez réessayer.');
+        alert(window.siteText('Le téléchargement est momentanément indisponible. Veuillez réessayer.'));
     } finally {
         guideLink.textContent = originalText;
         guideLink.style.pointerEvents = '';
@@ -528,19 +528,19 @@ contactForm.addEventListener('submit', async (e) => {
  
     // Valide les données
     if (!formData.name || !formData.email || !formData.message) {
-        alert('Veuillez remplir tous les champs obligatoires.');
+        alert(window.siteText('Veuillez remplir tous les champs obligatoires.'));
         return;
     }
  
     if (!isValidEmail(formData.email)) {
-        alert('Veuillez entrer un email valide.');
+        alert(window.siteText('Veuillez entrer un email valide.'));
         return;
     }
  
     // Affiche un état de chargement
     const submitButton = contactForm.querySelector('.submit-button');
     const originalText = submitButton.textContent;
-    submitButton.textContent = 'Envoi en cours...';
+    submitButton.textContent = window.siteText('Envoi en cours...');
     submitButton.disabled = true;
  
     try {
@@ -592,7 +592,7 @@ contactForm.addEventListener('submit', async (e) => {
  
     } catch (error) {
         console.error('Erreur lors de la soumission:', error);
-        alert('Une erreur est survenue. Veuillez réessayer.');
+        alert(window.siteText('Une erreur est survenue. Veuillez réessayer.'));
     } finally {
         submitButton.textContent = originalText;
         submitButton.disabled = false;
