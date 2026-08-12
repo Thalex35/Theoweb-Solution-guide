@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VPXBC30EB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3VPXBC30EB');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez si votre entreprise est facile à trouver en ligne. Téléchargez gratuitement la checklist des 7 informations essentielles.">
+    <meta name="description" content="Téléchargez gratuitement la checklist des 7 informations qu’un client doit trouver en moins de 30 secondes pour améliorer sa présence en ligne.">
     <meta name="theme-color" content="#1B4D5C">
-    <title>TheoWeb Solutions - Checklist Présence Digitale Gratuite</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+    <link rel="canonical" href="https://theoweb-solutions.vercel.app/">
+    <meta property="og:title" content="Checklist gratuite pour petites entreprises | TheoWeb Solutions">
+    <meta property="og:description" content="Téléchargez gratuitement la checklist des 7 informations qu’un client doit trouver en moins de 30 secondes.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theoweb-solutions.vercel.app/">
+    <!-- À remplacer par une image sociale 1200 × 630 px lorsqu’elle sera disponible. -->
+    <meta property="og:image" content="https://theoweb-solutions.vercel.app/assets/logo.png">
+    <title>Checklist gratuite pour petites entreprises | TheoWeb Solutions</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,6 +37,7 @@
                 <a href="#how-it-works" class="nav-link">Comment ça marche</a>
                 <button class="cta-button" id="headerCTA">Recevoir la checklist</button>
             </nav>
+            <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to English">English</button>
             <button class="menu-toggle" id="menuToggle">
                 <span></span>
                 <span></span>
@@ -88,10 +106,10 @@
                         <h3>Merci, <span id="successName">Mon ami</span> !</h3>
                         <p>Votre checklist est prête.</p>
                         <div class="success-actions">
-                            <a href="[LIEN_PDF_GOOGLE_DRIVE]" class="button button-primary" target="_blank" rel="noopener noreferrer">
+                            <a href="https://drive.google.com/uc?id=1-ActKRW2hoAqTWB10EtFtAVKafXMJiVn&export=download" class="button button-primary" target="_blank" rel="noopener noreferrer" id="guideDownloadLink">
                                 Télécharger la checklist
                             </a>
-                            <a href="[LIEN_WHATSAPP]" class="button button-secondary" target="_blank" rel="noopener noreferrer" id="auditLink">
+                            <a href="https://wa.me/50946344841" class="button button-secondary" target="_blank" rel="noopener noreferrer" id="auditLink">
                                 Demander mon mini-audit gratuit
                             </a>
                         </div>
@@ -290,7 +308,7 @@
         <div class="container">
             <h2 class="section-title">Vous souhaitez un regard professionnel sur votre présence en ligne ?</h2>
             <p class="audit-description">Envoyez-nous le lien de votre page Facebook, Instagram, profil Google ou site web. Nous vous indiquerons les 2 ou 3 priorités les plus utiles à améliorer.</p>
-            <a href="[LIEN_WHATSAPP]" class="cta-button cta-button-large" target="_blank" rel="noopener noreferrer">Demander mon mini-audit gratuit</a>
+            <a href="https://wa.me/50946344841" class="cta-button cta-button-large" target="_blank" rel="noopener noreferrer">Demander mon mini-audit gratuit</a>
         </div>
     </section>
 
@@ -350,7 +368,56 @@
         </div>
     </section>
 
+
+
     <!-- Footer -->
+    <!-- Section: Formulaire de Contact -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">Vous avez une question ?</h2>
+            <p class="contact-subtitle">Envoyez-nous un message et nous vous répondrons dès que possible.</p>
+            
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="contactName">Votre nom *</label>
+                        <input type="text" id="contactName" name="contactName" required placeholder="Votre nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Votre email *</label>
+                        <input type="email" id="contactEmail" name="contactEmail" required placeholder="vous@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactPhone">Téléphone (optionnel)</label>
+                        <input type="tel" id="contactPhone" name="contactPhone" placeholder="+509 XX XX XXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Votre message *</label>
+                        <textarea id="contactMessage" name="contactMessage" required placeholder="Votre message..." rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Envoyer le message</button>
+                    <p class="form-disclaimer">Nous vous répondrons dans les 24 heures.</p>
+                </form>
+ 
+                <!-- Success Message (hidden by default) -->
+                <div class="contact-success" id="contactSuccess" style="display: none;">
+                    <div class="success-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Merci, <span id="contactSuccessName">mon ami</span> !</h3>
+                    <p>Nous avons reçu votre message et nous vous répondrons très bientôt.</p>
+                    <p class="contact-info">En attendant, vous pouvez aussi nous contacter directement :</p>
+                    <div class="contact-links">
+                        <a href="https://wa.me/50946344841?text=Bonjour%20TheoWeb%20Solutions" class="button button-primary" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=louisjustetheodore%40gmail.com&amp;su=Demande%20d%27information%20-%20TheoWeb%20Solutions&amp;body=Bonjour%20TheoWeb%20Solutions%2C%0A%0AJe%20souhaite%20obtenir%20plus%20d%27informations." class="button button-secondary" target="_blank" rel="noopener noreferrer">Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -362,16 +429,16 @@
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul class="footer-links">
-                        <li><a href="[LIEN_WHATSAPP]" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-                        <li><a href="mailto:[EMAIL_THEOWEB]">Email</a></li>
+                        <li><a href="https://wa.me/50946344841" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                        <li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=louisjustetheodore%40gmail.com&amp;su=Demande%20d%27information%20-%20TheoWeb%20Solutions&amp;body=Bonjour%20TheoWeb%20Solutions%2C%0A%0AJe%20souhaite%20obtenir%20plus%20d%27informations." target="_blank" rel="noopener noreferrer">Email</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
                     <h4>Réseaux sociaux</h4>
                     <ul class="footer-links">
-                        <li><a href="https://www.facebook.com/theoweb" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                        <li><a href="https://www.linkedin.com/company/theoweb" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li><a href="https://www.facebook.com/TheedDev" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                        <li><a href="https://www.linkedin.com/in/théodore-alex-junior-louisjuste-77b8932ab" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                     </ul>
                 </div>
             </div>
@@ -404,6 +471,8 @@
         </div>
     </div>
 
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script src="language.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
