@@ -24,6 +24,13 @@ const closeModal = document.getElementById('closeModal');
 const auditLink = document.getElementById('auditLink');
 const faqQuestions = document.querySelectorAll('.faq-question');
 
+// Sends anonymous conversion events to Google Analytics when it is available.
+window.trackAnalyticsEvent = (eventName) => {
+    if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName);
+    }
+};
+
 // ============================================
 // GESTION DU FORMULAIRE PRINCIPAL
 // ============================================

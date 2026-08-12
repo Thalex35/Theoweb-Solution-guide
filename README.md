@@ -11,8 +11,6 @@ Le projet utilise HTML, CSS et JavaScript vanilla : aucune installation de dépe
 index.html                 Page principale et métadonnées SEO
 style.css                  Styles responsive
 script.js                  Formulaires, téléchargement et interactions
-analytics.js               Chargement conditionnel de Google Analytics 4
-api/analytics-config.js    Fonction Vercel qui expose uniquement l’ID GA4
 assets/logo.png            Logo TheoWeb Solutions
 robots.txt                 Instructions pour les moteurs de recherche
 sitemap.xml                Sitemap temporaire
@@ -74,17 +72,11 @@ Dans le tableau de bord Vercel, ouvrez le projet puis **Settings → Domains**. 
 
 1. Créez une propriété Google Analytics 4 sur [Google Analytics](https://analytics.google.com).
 2. Récupérez le Measurement ID qui commence par `G-`.
-3. Dans Vercel, ouvrez **Settings → Environment Variables** et ajoutez :
-
-   ```text
-   GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
-   ```
-
-   Ajoutez-le au moins à l’environnement **Production**.
-4. Redéployez le site avec `npx vercel --prod`.
+3. Le Measurement ID actuel, `G-3VPXBC30EB`, est déjà intégré dans `index.html` juste après l’ouverture de `<head>`.
+4. Redéployez le site avec `npx vercel --prod` après toute modification.
 5. Vérifiez les visites dans le rapport Temps réel de Google Analytics.
 
-Sans cette variable, aucun script Google Analytics n’est chargé. Les événements configurés ne contiennent aucune donnée personnelle :
+Les événements configurés ne contiennent aucune donnée personnelle :
 
 - `form_submit`
 - `checklist_download_click`
